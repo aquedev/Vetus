@@ -1,0 +1,7 @@
+﻿@Import: url(/css/components/main.css);
+@Import: url(components/test.css);
+
+body
+{
+    color: Red;
+}
