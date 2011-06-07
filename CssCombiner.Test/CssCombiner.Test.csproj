@@ -1,0 +1,92 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{007D26ED-7131-4595-8088-D94C35AD9067}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CssCombiner.Test</RootNamespace>
+    <AssemblyName>CssCombiner.Test</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NAnt.Core, Version=0.86.2898.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\nant-0.86-beta1\bin\NAnt.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.5.3.9345, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Nunit\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CssCombinerTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AuthoringTests.txt" />
+    <Content Include="test files\actual\EmptyStringReturnsEmptyString.css" />
+    <Content Include="test files\actual\ExternalUrlsDontGetChanged.css" />
+    <Content Include="test files\actual\MultipleUrlsReturnsCorrectResult.css" />
+    <Content Include="test files\actual\NoUrlinCssReturnsNoChange.css" />
+    <Content Include="test files\actual\UrlWithDoubleQuotesReturnsCorrectResult.css" />
+    <Content Include="test files\actual\UrlWithExistingQueryStringReturnsCorrectResult.css" />
+    <Content Include="test files\actual\UrlWithQuotesAndExistingQueryStringReturnsCorrectResult.css" />
+    <Content Include="test files\actual\UrlWithSingleQuotesReturnsCorrectResult.css" />
+    <Content Include="test files\actual\UrlWithSpacesAfterOpenBracketReturnsCorrectResult.css" />
+    <Content Include="test files\actual\UrlWithSpacesBeforeOpenBracketReturnsCorrectResult.css" />
+    <Content Include="test files\actual\UrlWithTextBeforeAndAfterItReturnsCorrectResult.css" />
+    <Content Include="test files\actual\UrlWithTextBeforeItReturnsCorrectResult.css" />
+    <Content Include="test files\expected\EmptyStringReturnsEmptyString.css" />
+    <Content Include="test files\expected\ExternalUrlsDontGetChanged.css" />
+    <Content Include="test files\expected\MultipleUrlsReturnsCorrectResult.css" />
+    <Content Include="test files\expected\NoUrlinCssReturnsNoChange.css" />
+    <Content Include="test files\expected\UrlWithDoubleQuotesReturnsCorrectResult.css" />
+    <Content Include="test files\expected\UrlWithExistingQueryStringReturnsCorrectResult.css" />
+    <Content Include="test files\expected\UrlWithQuotesAndExistingQueryStringReturnsCorrectResult.css" />
+    <Content Include="test files\expected\UrlWithSingleQuotesReturnsCorrectResult.css" />
+    <Content Include="test files\expected\UrlWithSpacesAfterOpenBracketReturnsCorrectResult.css" />
+    <Content Include="test files\expected\UrlWithSpacesBeforeOpenBracketReturnsCorrectResult.css" />
+    <Content Include="test files\expected\UrlWithTextBeforeAndAfterItReturnsCorrectResult.css" />
+    <Content Include="test files\expected\UrlWithTextBeforeItReturnsCorrectResult.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\src\CssCombiner.NAntTask\CssCombiner.NAntTask.csproj">
+      <Project>{6D474C34-5532-41DA-81E4-13AEA9F811D1}</Project>
+      <Name>CssCombiner.NAntTask</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
