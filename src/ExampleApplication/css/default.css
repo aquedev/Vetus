@@ -1,8 +1,7 @@
-﻿@Import url(components/main.css);
-@Import url(components/test.css);
+﻿@Import: url(/css/components/main.css);
+@Import: url(components/test.css);
 
 body
 {
-    background: url(../images/button-sm.gif?b=2) no-repeat right top;
     color: Red;
 }
