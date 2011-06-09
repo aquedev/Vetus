@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="6dfa6ad4-682e-4d3d-abc3-fc814cbd0d56" name="sachin@AQUE-PC-32 2011-06-07 14:10:40" runUser="AQUEDUCT\sachin" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+  <TestRunConfiguration name="Local Test Run" id="b2c2a806-5132-44da-a1dd-67cf25e0b5d4">
+    <Description>This is a default test run configuration for a local test run.</Description>
+    <Deployment runDeploymentRoot="C:\Projects\Vetus\TestResults\sachin_AQUE-PC-32 2011-06-07 14_10_40">
+      <DeploymentItem filename="C:\Projects\Vetus\src\CssCombiner.NAntTask\bin\Debug\CssCombiner.NAntTask.dll" />
+      <DeploymentItem filename="C:\Projects\Vetus\lib\nant-0.86-beta1\bin\NAnt.Core.dll" />
+    </Deployment>
+    <TestTypeSpecific />
+  </TestRunConfiguration>
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <Times creation="2011-06-07T14:10:40.4706321+01:00" queuing="2011-06-07T14:10:40.8386689+01:00" start="2011-06-07T14:10:41.0436894+01:00" finish="2011-06-07T14:10:41.6617512+01:00" />
+  <TestDefinitions>
+    <UnitTest name="TestUrlWithSingleQuotesReturnsCorrectResult" storage="c:\projects\vetus\csscombiner.test\bin\debug\csscombiner.test.dll" id="801d4fa7-3975-40b4-83f5-80a5645d7b7b">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="369cc820-a104-4932-9671-0aa5b538e97e" />
+      <TestMethod codeBase="C:\Projects\Vetus\CssCombiner.Test\bin\Debug\CssCombiner.Test.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CssCombiner.Test.CssCombinerTests, CssCombiner.Test" name="TestUrlWithSingleQuotesReturnsCorrectResult" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="801d4fa7-3975-40b4-83f5-80a5645d7b7b" executionId="369cc820-a104-4932-9671-0aa5b538e97e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="369cc820-a104-4932-9671-0aa5b538e97e" testId="801d4fa7-3975-40b4-83f5-80a5645d7b7b" testName="TestUrlWithSingleQuotesReturnsCorrectResult" computerName="AQUE-PC-32" duration="00:00:00.0962353" startTime="2011-06-07T14:10:41.0436894+01:00" endTime="2011-06-07T14:10:41.6467497+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method CssCombiner.Test.CssCombinerTests.TestUrlWithSingleQuotesReturnsCorrectResult threw exception:  System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---&gt;  System.IndexOutOfRangeException: Index was outside the bounds of the array..</Message>
+          <StackTrace>    at CssCombiner.NAntTask.CssCombiner.AppendBuildVersionToImagesUrlsMatch(Match m) in C:\Projects\Vetus\src\CssCombiner.NAntTask\CssCombiner.cs:line 115
+   at System.Text.RegularExpressions.RegexReplacement.Replace(MatchEvaluator evaluator, Regex regex, String input, Int32 count, Int32 startat)
+   at System.Text.RegularExpressions.Regex.Replace(String input, MatchEvaluator evaluator, Int32 count, Int32 startat)
+   at System.Text.RegularExpressions.Regex.Replace(String input, MatchEvaluator evaluator)
+   at CssCombiner.NAntTask.CssCombiner.AppendBuildVersionToImagesUrls(String file) in C:\Projects\Vetus\src\CssCombiner.NAntTask\CssCombiner.cs:line 142
+ --- End of inner exception stack trace ---
+    at System.RuntimeMethodHandle._InvokeMethodFast(Object target, Object[] arguments, SignatureStruct&amp; sig, MethodAttributes methodAttributes, RuntimeTypeHandle typeOwner)
+   at System.RuntimeMethodHandle.InvokeMethodFast(Object target, Object[] arguments, Signature sig, MethodAttributes methodAttributes, RuntimeTypeHandle typeOwner)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at CssCombiner.Test.CssCombinerTests.RunMethod(IReflect t, String strMethod, Object objInstance, Object[] aobjParams, BindingFlags eFlags) in C:\Projects\Vetus\CssCombiner.Test\CssCombinerTests.cs:line 112
+   at CssCombiner.Test.CssCombinerTests.RunInstanceMethod(IReflect t, String strMethod, Object objInstance, Object[] aobjParams) in C:\Projects\Vetus\CssCombiner.Test\CssCombinerTests.cs:line 101
+   at CssCombiner.Test.CssCombinerTests.TestUrlWithSingleQuotesReturnsCorrectResult() in C:\Projects\Vetus\CssCombiner.Test\CssCombinerTests.cs:line 91
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

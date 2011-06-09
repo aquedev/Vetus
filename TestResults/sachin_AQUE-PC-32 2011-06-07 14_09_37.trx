@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="d6ea0f47-b7a7-4e06-9a56-94beab36ec31" name="sachin@AQUE-PC-32 2011-06-07 14:09:37" runUser="AQUEDUCT\sachin" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+  <TestRunConfiguration name="Local Test Run" id="b2c2a806-5132-44da-a1dd-67cf25e0b5d4">
+    <Description>This is a default test run configuration for a local test run.</Description>
+    <Deployment runDeploymentRoot="C:\Projects\Vetus\TestResults\sachin_AQUE-PC-32 2011-06-07 14_09_37">
+      <DeploymentItem filename="C:\Projects\Vetus\src\CssCombiner.NAntTask\bin\Debug\CssCombiner.NAntTask.dll" />
+      <DeploymentItem filename="C:\Projects\Vetus\lib\nant-0.86-beta1\bin\NAnt.Core.dll" />
+    </Deployment>
+    <TestTypeSpecific />
+  </TestRunConfiguration>
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <Times creation="2011-06-07T14:09:37.4733330+01:00" queuing="2011-06-07T14:09:39.1515008+01:00" start="2011-06-07T14:09:39.4455302+01:00" finish="2011-06-07T14:09:40.2196076+01:00" />
+  <TestDefinitions>
+    <UnitTest name="TestUrlWithSpacesBeforeOpenBracketReturnsCorrectResult" storage="c:\projects\vetus\csscombiner.test\bin\debug\csscombiner.test.dll" id="438d70cd-a080-c82d-6143-6451f142e188">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="880a3f6c-a18a-49f0-baf3-6289d274dbb6" />
+      <TestMethod codeBase="C:\Projects\Vetus\CssCombiner.Test\bin\Debug\CssCombiner.Test.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="CssCombiner.Test.CssCombinerTests, CssCombiner.Test" name="TestUrlWithSpacesBeforeOpenBracketReturnsCorrectResult" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="438d70cd-a080-c82d-6143-6451f142e188" executionId="880a3f6c-a18a-49f0-baf3-6289d274dbb6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="880a3f6c-a18a-49f0-baf3-6289d274dbb6" testId="438d70cd-a080-c82d-6143-6451f142e188" testName="TestUrlWithSpacesBeforeOpenBracketReturnsCorrectResult" computerName="AQUE-PC-32" duration="00:00:00.1144199" startTime="2011-06-07T14:09:39.5355392+01:00" endTime="2011-06-07T14:09:40.1716028+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <StdOut>the result of the URL replace is: url            (abc.png?v=1234);</StdOut>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>
