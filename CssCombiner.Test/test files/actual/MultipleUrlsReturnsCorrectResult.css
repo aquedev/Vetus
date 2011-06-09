@@ -1,8 +1,0 @@
-﻿background: white url(../images/abc.gif?a=1);
-#Main
-{
-    width : 100%;
-}
-background: white url(../images/abc.gif);
-url(../images/abc.gif) no repeat right top
-     url(              '../images/abc.gif'           )

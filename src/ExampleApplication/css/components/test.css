@@ -1,9 +1,4 @@
 ﻿.test
 {
-    background: white url(../images/input-text-bg.gif?a=1);
-    background: white url(../images/input-text-bg.gif);
-    background: white url("http://images.com/input-text-bg.gif");
-    background: white url(https://images.com/input-text-bg.gif);
-    background: white url(//images.com/input-text-bg.gif);
     font-size: 12px;
 }

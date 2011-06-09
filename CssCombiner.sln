@@ -8,16 +8,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C1C3F3C6-687E-4C38-8E3C-3C2238DC6112}"
 	ProjectSection(SolutionItems) = preProject
 		CssCombiner.build = CssCombiner.build
-		CssCombiner.vsmdi = CssCombiner.vsmdi
-		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CssCombiner.Test", "CssCombiner.Test\CssCombiner.Test.csproj", "{007D26ED-7131-4595-8088-D94C35AD9067}"
-EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = CssCombiner.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -31,10 +24,6 @@ Global
 		{44DB5A4B-0C13-41D3-A2D0-17DB463DAEDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44DB5A4B-0C13-41D3-A2D0-17DB463DAEDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44DB5A4B-0C13-41D3-A2D0-17DB463DAEDB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{007D26ED-7131-4595-8088-D94C35AD9067}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{007D26ED-7131-4595-8088-D94C35AD9067}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{007D26ED-7131-4595-8088-D94C35AD9067}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{007D26ED-7131-4595-8088-D94C35AD9067}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

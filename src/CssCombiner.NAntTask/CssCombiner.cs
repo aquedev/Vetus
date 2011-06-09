@@ -1,12 +1,11 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Web;
 using NAnt.Core;
 using NAnt.Core.Attributes;
 using NAnt.Core.Types;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CssCombiner.NAntTask
 {
@@ -15,9 +14,6 @@ namespace CssCombiner.NAntTask
     {
         [BuildElement("fileset", Required = true)]
         public virtual FileSet CssFiles { get; set; }
-
-        [TaskAttribute("assemblyVersion", Required = false)]
-        public virtual string AssemblyVersion { get; set; }
 
         [BuildElement("filestokeep", Required = false)]
         public virtual FileSet FilesToKeep { get; set; }
@@ -30,6 +26,7 @@ namespace CssCombiner.NAntTask
         protected override void ExecuteTask()
         {
             PrintInfo();
+
 
             foreach (var fileName in CssFiles.FileNames)
             {
@@ -44,8 +41,8 @@ namespace CssCombiner.NAntTask
                 Console.WriteLine("Deleting: " + GetRelativeFilePath(file));
                 File.Delete(file);
             }
-        }
 
+        }
         private void PrintInfo()
         {
             Echo("Css combiner .......................");
@@ -64,8 +61,8 @@ namespace CssCombiner.NAntTask
                     Echo(GetRelativeFilePath(fileName));
                 }
             }
+                
         }
-
         private static void Echo(string message)
         {
             Console.WriteLine(message);
@@ -75,76 +72,44 @@ namespace CssCombiner.NAntTask
         {
             if (FilesToKeep != null)
             {
-                if (FilesToKeep.FileNames.Cast<string>().Any(fileToKeep => string.Equals(file, fileToKeep, StringComparison.CurrentCultureIgnoreCase)))
+                foreach (string fileToKeep in FilesToKeep.FileNames)
                 {
-                    Echo("Keeping file: "+ GetRelativeFilePath(file));
-                    return true;
+                    if (string.Equals(file, fileToKeep, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        Echo("Keeping file: "+ GetRelativeFilePath(file));
+                        return true;
+                    }
+                        
                 }
             }
             return false;
         }
-
         private string GetRelativeFilePath(string file)
         {
             return file.Replace(WorkingDir, "");
         }
 
-        private void CombineCss(string filename)
+        private void CombineCss(string file)
         {
             if (Verbose)
-                Console.WriteLine("Scanning: " + GetRelativeFilePath(filename));
+                Console.WriteLine("Scanning: " + GetRelativeFilePath(file));
 
-            var replacedFile = ReplaceImports(filename);
-            replacedFile = AppendBuildVersionToImagesUrls(replacedFile);
+            var replacedFile = ReplaceImports(file);
 
-            SaveFile(filename, replacedFile);
+            SaveFile(file, replacedFile);
         }
 
-        private string AppendBuildVersionToImagesUrlsMatch(Match m)
+        private static void SaveFile(string filename, string file)
         {
-            var url = m.Groups[2].ToString().Trim();
-
-            var version = GetRevisionNumber();
-
-            var closeQuote = string.Empty;
-            if (!url.Contains("?v=") && !url.Contains("&v=") && !url.Contains("//"))
+            try
             {
-                if (url.EndsWith("'") || url.EndsWith("\""))
-                {
-                    closeQuote = url[url.Length - 1].ToString();
-                    url = url.Substring(0, url.Length - 1);
-                }
-                url += url.Contains("?") ? "&v=" + version : "?v=" + version;
+                using (TextWriter writer = new StreamWriter(filename))
+                    writer.Write(file);
             }
-            
-            return m.Groups[1] + url + closeQuote + m.Groups[3];
-        }
-
-        private string GetRevisionNumber()
-        {
-            string revision;
-            if (!AssemblyVersion.Contains("."))
+            catch (IOException e)
             {
-                revision = AssemblyVersion;
+                throw new BuildException("Cannot save file: " + filename, e);
             }
-            else
-            {
-                revision = HttpUtility.HtmlEncode(AssemblyVersion.Substring(AssemblyVersion.LastIndexOf(".") + 1));
-            }
-
-            return revision;
-        }
-
-        protected string AppendBuildVersionToImagesUrls(string file)
-        {
-            var r = new Regex(@"(url[\s]*\([\s]*)(.+)(\).*)", RegexOptions.IgnoreCase);
-
-            var result = r.Replace(file, new MatchEvaluator(AppendBuildVersionToImagesUrlsMatch));
-
-            if (Verbose)
-                Console.WriteLine("the result of the URL replace is: " + result);
-
-            return result;
         }
 
         private string ReplaceImports(string filename)
@@ -152,6 +117,7 @@ namespace CssCombiner.NAntTask
             var file = LoadFile(filename);
 
             var r = new Regex("@Import url\\(([^\\)]+)\\);?", RegexOptions.IgnoreCase);
+
             var matches = r.Matches(file);
 
             if (matches.Count > 0)
@@ -173,21 +139,7 @@ namespace CssCombiner.NAntTask
                 if (Verbose)
                     Console.WriteLine("No imports found");
             }
-
             return file;
-        }
-
-        private static void SaveFile(string filename, string file)
-        {
-            try
-            {
-                using (TextWriter writer = new StreamWriter(filename))
-                    writer.Write(file);
-            }
-            catch (IOException e)
-            {
-                throw new BuildException("Cannot save file: " + filename, e);
-            }
         }
 
         private void AddToProcessedFiles(string fileToInclude)
@@ -198,21 +150,18 @@ namespace CssCombiner.NAntTask
 
         private string GetFullPath(string containerPath, string importPath)
         {
-            string path;
-
             if (importPath.StartsWith("/"))
-                path = WorkingDir.TrimEnd('/') + importPath;
+                return WorkingDir.TrimEnd('/') + importPath;
             else
             {
                 string pathGetFileName = Path.GetFileName(containerPath);
-                path = containerPath.Replace(pathGetFileName, string.Empty) + importPath;
+                return containerPath.Replace(pathGetFileName, string.Empty) + importPath;
             }
-
-            return path;
         }
 
         private string LoadFile(string filename)
         {
+
             if (Verbose)
                 Console.WriteLine("Loading: " + filename);
 
